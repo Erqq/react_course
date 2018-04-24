@@ -1,7 +1,11 @@
 {
   "scripts": {
     "api": "node ratingsAPI.js",
-    "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\""
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "dev": "webpack-dev-server ",
+    "format":
+      "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"js/**/*.{js,jsx}\""
   },
   "dependencies": {
     "axios": "0.16.1",
@@ -28,6 +32,7 @@
     "webpack-hot-middleware": "2.18.0"
   },
   "devDependencies": {
+    "@bwsoftwarefi/eslint-config-bw": "^1.3.0",
     "babel-core": "6.24.1",
     "babel-eslint": "7.2.3",
     "babel-loader": "7.0.0",
@@ -45,16 +50,15 @@
     "eslint-loader": "1.7.1",
     "eslint-plugin-flow": "2.29.1",
     "eslint-plugin-flowtype": "2.33.0",
-    "eslint-plugin-import": "2.3.0",
-    "eslint-plugin-jsx-a11y": "5.0.3",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-prettier": "2.1.1",
-    "eslint-plugin-react": "7.0.1",
+    "eslint-plugin-react": "^7.0.1",
     "flow-bin": "0.47.0",
     "jest": "20.0.4",
     "jest-serializer-enzyme": "1.0.0",
     "moxios": "0.4.0",
     "nodemon": "1.11.0",
-    "prettier": "1.3.1",
     "react-hot-loader": "3.0.0-beta.6",
     "react-test-renderer": "15.5.4",
     "webpack-dev-server": "2.4.5"
