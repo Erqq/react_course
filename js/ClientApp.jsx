@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
 import Landing from "./Landing";
 import Search from "./Search";
+
 const App = () => {
   return (
     <BrowserRouter>
