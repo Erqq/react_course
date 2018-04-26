@@ -1,11 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-const Landing = () => (
+const Landing = (props, searchTerm) => (
   <div className="landing">
     <h1>svideo</h1>
-    <input type="text" placeholder="Search" />
+    <input value={props.searchTerm} type="text" placeholder="Search" />
     <Link to="/search">Or browse all</Link>
   </div>
 );
-export default Landing;
+
+const mapStateToProps = state => ({
+  searchTerm: state.searchTerm
+});
+export default connect(mapStateToProps)(Landing);
