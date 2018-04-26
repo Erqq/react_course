@@ -1,13 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 import { shape, string } from "prop-types";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-const Wrapper = styled.div`
+const Wrapper = styled(Link)`
   width: 32%;
   border: 2px solid #333;
   margin-bottom: 25px;
   padding-right: 10px;
   overflow: hidden;
+  color: black;
+  text-decoration: none;
 `;
 
 const Image = styled.img`
@@ -16,19 +19,26 @@ const Image = styled.img`
   margin-right: 10px;
 `;
 
-const ShowCard = props => (
-  <Wrapper>
-    <Image
-      src={`/public/img/posters/${props.show.poster}`}
-      alt={`{show.title} Show Poster`}
-    />
-    <div>
-      <h3>{props.show.title}</h3>
-      <h4>({props.show.year})</h4>
-      <p>{props.show.description}</p>
-    </div>
-  </Wrapper>
-);
+class ShowCard extends Component {
+  shouldComponentUpdate() {
+    return false;
+  }
+  render() {
+    return (
+      <Wrapper to={`/details/${props.show.imdbID}`}>
+        <Image
+          src={`/public/img/posters/${props.show.poster}`}
+          alt={`{show.title} Show Poster`}
+        />
+        <div>
+          <h3>{props.show.title}</h3>
+          <h4>({props.show.year})</h4>
+          <p>{props.show.description}</p>
+        </div>
+      </Wrapper>
+    );
+  }
+}
 ShowCard.prototype = {
   show: shape({
     poster: string.isRequired,
