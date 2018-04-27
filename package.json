@@ -5,6 +5,7 @@
     "watch": "webpack --watch",
     "dev": "webpack-dev-server ",
     "test": "jest",
+    "start": "NODE_ENV=server node server.js",
     "test:update": "jest -u",
     "test:coverage": "jest --coverage",
     "format":

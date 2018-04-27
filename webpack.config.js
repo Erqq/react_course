@@ -7,6 +7,7 @@ module.exports = {
     "react-hot-loader/patch",
     "webpack-dev-server/client?http://localhost:8080",
     "webpack/hot/only-dev-server",
+    //  "webpack-hot-middleware/client?path=__webpack_hmr&timeout=2000",
     "./js/ClientApp.jsx"
   ],
   devtool: "cheap-eval-source-map",
