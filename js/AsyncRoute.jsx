@@ -14,7 +14,7 @@ class AsyncRoute extends Component {
   component = null;
   render() {
     if (this.state.loaded) {
-      return <this.component {...this.props} />;
+      return <this.component {...this.props.props} />;
     }
     return <Spinner />;
   }

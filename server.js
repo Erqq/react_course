@@ -8,6 +8,7 @@ const fs = require("fs");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
 const webpack = require("webpack");
+const compression = require("compression");
 const App = require("./js/App").default;
 const config = require("./webpack.config");
 const StaticRouter = ReactRouter.StaticRouter;
@@ -17,7 +18,9 @@ const template = _.template(baseTemplate);
 const server = express();
 
 const compiler = webpack(config);
+server.use(`/public`, express.static(`./public`));
 
+server.use(compression());
 server.use(
   webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath
@@ -25,7 +28,6 @@ server.use(
 );
 
 server.use(webpackHotMiddleware(compiler));
-server.use(`/public`, express.static(`./public`));
 
 server.use((req, res) => {
   const context = {};
